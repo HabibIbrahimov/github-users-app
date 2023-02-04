@@ -23,7 +23,7 @@ export default {
   site_admin: false,
   name: 'Habib',
   company: 'Code Academy',
-  blog: '',
+  blog: 'https://www.linkedin.com/in/habib-ibrahimov-128b35237/',
   location: 'Baku',
   email: null,
   hireable: null,
