@@ -7,42 +7,23 @@ const Repos = () => {
 
   const chartData = [
     {
-      label: 'Venezuela',
+      label: 'HTML',
       value: '290',
     },
     {
-      label: 'Saudi',
+      label: 'CSS',
       value: '260',
     },
     {
-      label: 'Canada',
-      value: '180',
-    },
-    {
-      label: 'Iran',
-      value: '140',
-    },
-    {
-      label: 'Russia',
-      value: '115',
-    },
-    {
-      label: 'UAE',
-      value: '100',
-    },
-    {
-      label: 'US',
-      value: '30',
-    },
-    {
-      label: 'China',
-      value: '30',
+      label: 'JavaScript',
+      value: '260',
     },
   ];
   return (
     <section className="section">
       <Wrapper className="section-center">
-        <ExampleChart data={chartData} />
+        <Pie3D data={chartData} />
+        {/* <ExampleChart data={chartData} /> */}
       </Wrapper>
     </section>
   );
