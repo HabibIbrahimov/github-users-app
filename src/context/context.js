@@ -3,6 +3,7 @@ import mockUser from './mockData.js/mockUser';
 import mockRepos from './mockData.js/mockRepos';
 import mockFollowers from './mockData.js/mockFollowers';
 import axios from 'axios';
+import { Await } from 'react-router-dom';
 
 const rootUrl = 'https://api.github.com';
 
@@ -14,6 +15,16 @@ const GithubProvider = ({ children }) => {
   const [followers, setFollowers] = useState(mockFollowers);
   const [requests, setRequest] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+
+  const searchGithubUser = async (user) => {
+    const response = await axios(`${rootUrl}/users/${user}`).catch((err) =>
+      console.log(err)
+    );
+    if (response) {
+      setGithubUser(response.data);
+    } else {
+    }
+  };
   const checkRequest = () => {
     axios(`${rootUrl}/rate_limit`)
       .then(({ data }) => {
@@ -30,7 +41,9 @@ const GithubProvider = ({ children }) => {
   useEffect(checkRequest, []);
 
   return (
-    <GithubContext.Provider value={{ githubUser, repos, followers, requests }}>
+    <GithubContext.Provider
+      value={{ githubUser, repos, followers, requests, searchGithubUser }}
+    >
       {children}
     </GithubContext.Provider>
   );
